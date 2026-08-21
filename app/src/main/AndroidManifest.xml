@@ -14,30 +14,17 @@
             android:label="Kihon"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
+            android:localeConfig="@xml/locales_config"
             android:theme="@style/Theme.Material3.Dark"
             tools:targetApi="34">
-        <activity
-                android:name=".activity.ExportOptionsActivity"
-                android:exported="false"/>
-        <activity
-                android:name=".activity.BooksList"
-                android:exported="false"/>
-        <activity
-                android:name=".activity.ProgressActivity"
-                android:exported="false"
-                android:screenOrientation="portrait"
-                android:label="Loading..." />
-
-        <activity
-                android:name=".MainActivity"
-                android:exported="true"
-                android:label="Kihon">
+        <activity android:name=".activity.ExportOptionsActivity" android:exported="false"/>
+        <activity android:name=".activity.BooksList" android:exported="false"/>
+        <activity android:name=".activity.ProgressActivity" android:exported="false" android:screenOrientation="portrait" android:label="Loading..." />
+        <activity android:name=".MainActivity" android:exported="true" android:label="Kihon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
