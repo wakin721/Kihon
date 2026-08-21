@@ -2,8 +2,6 @@ name: Release APK
 
 on:
   push:
-    branches:
-      - "feature/simplified-chinese-language"
     tags:
       - "v*"
   workflow_dispatch:
@@ -43,10 +41,8 @@ jobs:
         run: |
           if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
             release_tag="${INPUT_TAG}"
-          elif [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
-            release_tag="${GITHUB_REF_NAME}"
           else
-            release_tag="v1.0.1"
+            release_tag="${GITHUB_REF_NAME}"
           fi
 
           apk_path="$(find app/build/outputs/apk/release -maxdepth 1 -type f -name '*.apk' -print -quit)"
