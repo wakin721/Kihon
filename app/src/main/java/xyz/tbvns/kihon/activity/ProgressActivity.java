@@ -1,6 +1,5 @@
 package xyz.tbvns.kihon.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -54,7 +53,7 @@ public class ProgressActivity extends AppCompatActivity {
     public void setProgressBar(int progress) {
         progress = Math.max(0, Math.min(100, progress));
         progressBar.setProgress(progress);
-        progressPercentage.setText(progress + "%");
+        progressPercentage.setText(getString(R.string.progress_percentage_format, progress));
     }
 
     /**
@@ -73,15 +72,15 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
     public void setItemsCount(int current, int total) {
-        progressItems.setText(current + "/" + total);
+        progressItems.setText(getString(R.string.progress_items_format, current, total));
     }
 
     public void reset() {
         progressBar.setProgress(0);
-        progressPercentage.setText("0%");
-        progressTitle.setText("Processing...");
-        progressMessage.setText("Initializing...");
-        progressCurrentTask.setText("Initializing...");
-        progressItems.setText("0/0");
+        progressPercentage.setText(R.string.progress_zero_percent);
+        progressTitle.setText(R.string.progress_processing);
+        progressMessage.setText(R.string.progress_initializing);
+        progressCurrentTask.setText(R.string.progress_initializing);
+        progressItems.setText(R.string.progress_zero_items);
     }
 }

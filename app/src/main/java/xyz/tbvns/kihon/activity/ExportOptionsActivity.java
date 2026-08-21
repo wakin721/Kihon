@@ -112,11 +112,9 @@ public class ExportOptionsActivity extends AppCompatActivity {
         coverPreview = findViewById(R.id.coverPreview);
         coverFileName = findViewById(R.id.coverFileName);
 
-        String[] formats = {"Electronic Publication (ePUB)",
-                "Portable Document Format (PDF)"};
         Spinner formatSpinner = findViewById(R.id.formatSpinner);
-        ArrayAdapter<Object> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, formats);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.export_formats, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         formatSpinner.setAdapter(adapter);
 
@@ -194,13 +192,14 @@ public class ExportOptionsActivity extends AppCompatActivity {
                         EZConfig.save();
                     } else {
                         Toast.makeText(this,
-                                "Page number must be between 1 and " + selectedFiles.size(),
+                                getString(R.string.export_page_number_range, selectedFiles.size()),
                                 Toast.LENGTH_SHORT).show();
                         coverPageInput.setText(String.valueOf(ExportSetting.COVER_PAGE_INDEX + 1));
                         selectedCoverPageIndex = ExportSetting.COVER_PAGE_INDEX;
                     }
                 } catch (Exception e) {
-                    Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.export_invalid_page_number,
+                            Toast.LENGTH_SHORT).show();
                     coverPageInput.setText(String.valueOf(ExportSetting.COVER_PAGE_INDEX + 1));
                     selectedCoverPageIndex = ExportSetting.COVER_PAGE_INDEX;
                 }
@@ -241,7 +240,7 @@ public class ExportOptionsActivity extends AppCompatActivity {
 
     private void onProceedClicked(Spinner formatSpinner) {
         selectedFiles.sort(Comparator.comparingInt(c -> c.number));
-        if (formatSpinner.getSelectedItem().equals("Electronic Publication (ePUB)")) {
+        if (formatSpinner.getSelectedItemPosition() == 0) {
             generate(1, reEncode);
         } else {
             generate(0, reEncode);
@@ -279,7 +278,8 @@ public class ExportOptionsActivity extends AppCompatActivity {
 
             if (inputStream == null) {
                 Log.e("ExportOptions", "InputStream is null");
-                Toast.makeText(this, "Failed to open image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.export_cover_open_failed,
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -288,7 +288,8 @@ public class ExportOptionsActivity extends AppCompatActivity {
 
             if (coverCustomBitmap == null) {
                 Log.e("ExportOptions", "BitmapFactory returned null");
-                Toast.makeText(this, "Failed to decode image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.export_cover_decode_failed,
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -304,15 +305,16 @@ public class ExportOptionsActivity extends AppCompatActivity {
             coverPreview.setVisibility(View.VISIBLE);
 
             String fileName = getFileNameFromUri(uri);
-            coverFileName.setText("Loaded: " + fileName);
+            coverFileName.setText(getString(R.string.export_cover_loaded_file, fileName));
             selectedCoverFileName = fileName;
 
             Log.d("ExportOptions", "UI updated with cover image");
-            Toast.makeText(this, "Cover image loaded successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.export_cover_loaded_success,
+                    Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             Log.e("ExportOptions", "Error loading cover image", e);
-            Toast.makeText(this, "Failed to load cover image: " + e.getMessage(),
+            Toast.makeText(this, getString(R.string.export_cover_load_failed, e.getMessage()),
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -327,7 +329,8 @@ public class ExportOptionsActivity extends AppCompatActivity {
                     coverCustomBitmap = bitmap;
                     coverPreview.setImageBitmap(bitmap);
                     coverPreview.setVisibility(View.VISIBLE);
-                    coverFileName.setText("Loaded: cover.jpg");
+                    coverFileName.setText(getString(
+                            R.string.export_cover_loaded_file, file.getName()));
                     Log.d("ExportOptions", "Loaded saved cover image from: " + filePath);
                 }
             }
@@ -378,7 +381,7 @@ public class ExportOptionsActivity extends AppCompatActivity {
             if (Constants.ExtractedFile == null) {
                 new Handler(Looper.getMainLooper()).post(() ->
                         Toast.makeText(context,
-                                "Extracted files directory not initialized!",
+                                R.string.export_extract_directory_unavailable,
                                 Toast.LENGTH_SHORT).show());
                 return null;
             }
@@ -407,7 +410,7 @@ public class ExportOptionsActivity extends AppCompatActivity {
             DocumentFile extractFolder = Constants.ExtractedFile.createDirectory(zipFileName);
             if (extractFolder == null) {
                 new Handler(Looper.getMainLooper()).post(() ->
-                        Toast.makeText(context, "Failed to create extraction folder!",
+                        Toast.makeText(context, R.string.export_extract_folder_create_failed,
                                 Toast.LENGTH_SHORT).show());
                 return null;
             }
@@ -445,7 +448,7 @@ public class ExportOptionsActivity extends AppCompatActivity {
         } catch (IOException e) {
             Log.e("ExportOptions", "Error extracting ZIP file", e);
             new Handler(Looper.getMainLooper()).post(() ->
-                    Toast.makeText(context, "Failed to extract ZIP file!",
+                    Toast.makeText(context, R.string.export_extract_zip_failed,
                             Toast.LENGTH_SHORT).show());
         }
         return null;
@@ -464,12 +467,10 @@ public class ExportOptionsActivity extends AppCompatActivity {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage("Using ePUB files with a large number of chapters may lead to " +
-                            "crashes due to excessive memory consumption. To avoid this issue, " +
-                            "consider using PDF format instead.")
-                    .setTitle("Warning")
-                    .setNegativeButton("Continue", first)
-                    .setPositiveButton("Switch to PDF", second);
+            builder.setMessage(R.string.export_epub_memory_warning_message)
+                    .setTitle(R.string.export_warning_title)
+                    .setNegativeButton(R.string.export_continue, first)
+                    .setPositiveButton(R.string.export_switch_to_pdf, second);
             return builder.create();
         }
     }
@@ -481,7 +482,9 @@ public class ExportOptionsActivity extends AppCompatActivity {
 
         new Thread(() -> {
             String formatName = (type == 0) ? "PDF" : "EPUB";
-            pm.startProgress(context, "Exporting " + formatName, "Extracting archives...");
+            pm.startProgress(context,
+                    getString(R.string.export_progress_title, formatName),
+                    getString(R.string.export_extracting_archives));
             pm.setItemsCount(0, selectedFiles.size());
 
             // Thread-safe collections for parallel extraction
@@ -502,8 +505,9 @@ public class ExportOptionsActivity extends AppCompatActivity {
                 final DocumentFile file = files.get(i);
 
                 extractionFutures.add(extractionExecutor.submit(() -> {
-                    pm.updateMessage("Extracting: " + file.getName());
-                    pm.setCurrentTask("Archive " + (index + 1) + " of " + max);
+                    pm.updateMessage(getString(R.string.export_extracting_file, file.getName()));
+                    pm.setCurrentTask(getString(
+                            R.string.export_archive_progress, index + 1, max));
 
                     DocumentFile extractedFolder = extractZip(context, file);
                     List<DocumentFile> chapterFiles = new ArrayList<>();
@@ -554,7 +558,8 @@ public class ExportOptionsActivity extends AppCompatActivity {
                     pm.updateProgress(extractProgress);
                 } catch (Exception e) {
                     Log.e("TAG", "Error during parallel extraction", e);
-                    pm.updateMessage("Error extracting archive: " + e.getMessage());
+                    pm.updateMessage(getString(
+                            R.string.export_extract_archive_error, e.getMessage()));
                 }
             }
 
@@ -570,27 +575,27 @@ public class ExportOptionsActivity extends AppCompatActivity {
             }
 
             pm.updateProgress(40);
-            pm.updateMessage("Generating file name...");
-            pm.setCurrentTask("Preparing metadata");
+            pm.updateMessage(getString(R.string.export_generating_file_name));
+            pm.setCurrentTask(getString(R.string.export_preparing_metadata));
 
-            String name = new ArrayList<>(selectedFiles).get(0).file.getParentFile().getName()
-                    + " from "
-                    + new ArrayList<>(selectedFiles).get(0).title
-                    + " to "
-                    + new ArrayList<>(selectedFiles).get(selectedFiles.size() - 1).title;
+            String name = getString(R.string.export_file_name_range,
+                    new ArrayList<>(selectedFiles).get(0).file.getParentFile().getName(),
+                    new ArrayList<>(selectedFiles).get(0).title,
+                    new ArrayList<>(selectedFiles).get(selectedFiles.size() - 1).title);
 
             DocumentFile file;
 
             if (reencode) {
                 pm.updateProgress(40);
-                pm.updateMessage("Processing images...");
-                pm.setCurrentTask("Optimizing images");
+                pm.updateMessage(getString(R.string.export_processing_images));
+                pm.setCurrentTask(getString(R.string.export_optimizing_images));
                 try {
                     ImageUtils.processImagesNoInit(context, pngs);
                     pm.updateProgress(60);
                 } catch (IOException e) {
-                    pm.updateMessage("Error processing images: " + e.getMessage());
-                    pm.setCurrentTask("Failed");
+                    pm.updateMessage(getString(
+                            R.string.export_process_images_error, e.getMessage()));
+                    pm.setCurrentTask(getString(R.string.progress_failed));
                     try { Thread.sleep(2000); } catch (InterruptedException ex) {}
                     pm.finishProgress();
                     return;
@@ -601,30 +606,30 @@ public class ExportOptionsActivity extends AppCompatActivity {
 
             pm.updateProgress(60);
             if (type == 0) {
-                pm.updateMessage("Generating PDF...");
-                pm.setCurrentTask("Adding images to PDF");
+                pm.updateMessage(getString(R.string.export_generating_pdf));
+                pm.setCurrentTask(getString(R.string.export_adding_images_to_pdf));
                 file = PdfUtils.createPdfFromPngsNoInit(context, pngs, name, chapterBoundaries);
             } else if (type == 1) {
-                pm.updateMessage("Generating EPUB...");
-                pm.setCurrentTask("Creating EPUB structure");
+                pm.updateMessage(getString(R.string.export_generating_epub));
+                pm.setCurrentTask(getString(R.string.export_creating_epub_structure));
                 file = EpubUtils.generateEpubNoInit(context, pngs, name, chapterBoundaries);
             } else {
                 file = null;
             }
 
-            pm.updateMessage("Cleaning up temporary files...");
-            pm.setCurrentTask("Deleting extracted folders");
+            pm.updateMessage(getString(R.string.export_cleaning_temporary_files));
+            pm.setCurrentTask(getString(R.string.export_deleting_extracted_folders));
             FilesLogic.cleanupExtractedFolder(pm);
             pm.updateProgress(95);
 
             if (file != null) {
                 pm.updateProgress(100);
-                pm.updateMessage("Export completed successfully!");
-                pm.setCurrentTask("Complete");
+                pm.updateMessage(getString(R.string.export_completed_success));
+                pm.setCurrentTask(getString(R.string.progress_complete));
                 try { Thread.sleep(1500); } catch (InterruptedException ex) {}
             } else {
-                pm.updateMessage("Export failed!");
-                pm.setCurrentTask("Failed");
+                pm.updateMessage(getString(R.string.export_failed));
+                pm.setCurrentTask(getString(R.string.progress_failed));
                 try { Thread.sleep(2000); } catch (InterruptedException ex) {}
             }
 

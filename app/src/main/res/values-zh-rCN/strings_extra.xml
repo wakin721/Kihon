@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_convert">转换</string>
+    <string name="nav_manage">管理</string>
+    <string name="nav_settings">设置</string>
+    <string name="format">格式</string>
+    <string name="image_processing">图像处理</string>
+    <string name="reencode_images">重新编码为 JPEG</string>
+    <string name="resize_images">调整图片大小</string>
+    <string name="use_grayscale">使用灰度</string>
+    <string name="epub_settings">ePUB 设置</string>
+    <string name="use_cover">使用封面</string>
+    <string name="page_number">页码</string>
+    <string name="cancel">取消</string>
+    <string name="proceed">继续</string>
+    <string name="processing">处理中…</string>
+    <string name="initializing">初始化…</string>
+    <string name="delete">删除</string>
+</resources>

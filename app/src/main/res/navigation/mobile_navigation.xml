@@ -8,18 +8,18 @@
     <fragment
             android:id="@+id/nav_convert"
             android:name="xyz.tbvns.kihon.ui.convert.ConvertFragment"
-            android:label="Convert"
+            android:label="@string/nav_convert"
             tools:layout="@layout/fragment_convert"/>
 
     <fragment
             android:id="@+id/navigation_manage"
             android:name="xyz.tbvns.kihon.ui.manage.ManageFragment"
-            android:label="Manage"
+            android:label="@string/nav_manage"
             tools:layout="@layout/fragment_manage"/>
 
     <fragment
             android:id="@+id/navigation_settings"
             android:name="xyz.tbvns.kihon.ui.settings.SettingsFragment"
-            android:label="Settings"
+            android:label="@string/nav_settings"
             tools:layout="@layout/fragment_settings"/>
 </navigation>

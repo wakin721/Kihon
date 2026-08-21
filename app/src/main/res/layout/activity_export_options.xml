@@ -19,7 +19,7 @@
 
             <!-- Format Selection -->
             <TextView
-                    android:text="Format"
+                    android:text="@string/export_format_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -34,7 +34,7 @@
 
             <!-- Image Processing Section -->
             <TextView
-                    android:text="Image Processing"
+                    android:text="@string/export_image_processing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -46,7 +46,7 @@
                     android:id="@+id/reencodeSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Re-encode images to JPEG"
+                    android:text="@string/export_reencode_images"
                     android:paddingBottom="8dp" android:paddingTop="8dp"/>
 
             <LinearLayout
@@ -61,7 +61,7 @@
                     tools:visibility="visible">
 
                 <TextView
-                        android:text="Image quality"
+                        android:text="@string/export_image_quality"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
@@ -85,7 +85,7 @@
                             android:id="@+id/qualityText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="80%"
+                            android:text="@string/export_initial_quality"
                             android:paddingStart="12dp"
                             android:minWidth="40dp"
                             android:textAlignment="viewEnd"/>
@@ -96,7 +96,7 @@
                     android:id="@+id/reziseImageSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Resize images"
+                    android:text="@string/export_resize_images"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp"/>
 
@@ -112,7 +112,7 @@
                     tools:visibility="visible">
 
                 <TextView
-                        android:text="Image size"
+                        android:text="@string/export_image_size"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
@@ -136,7 +136,7 @@
                             android:id="@+id/sizeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="100%"
+                            android:text="@string/export_initial_size"
                             android:paddingStart="12dp"
                             android:minWidth="40dp"
                             android:textAlignment="viewEnd"/>
@@ -147,7 +147,7 @@
                     android:id="@+id/grayscaleSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Use grayscale"
+                    android:text="@string/export_use_grayscale"
                     android:paddingBottom="16dp"
                     android:paddingTop="8dp"/>
 
@@ -160,7 +160,7 @@
 
             <!-- ePUB Only Section -->
             <TextView
-                    android:text="ePUB Settings"
+                    android:text="@string/export_epub_settings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -171,7 +171,7 @@
                     android:id="@+id/coverSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Use cover"
+                    android:text="@string/export_use_cover"
                     android:checked="false"
                     android:paddingBottom="8dp"
                     tools:checked="false" android:paddingTop="8dp"/>
@@ -192,7 +192,7 @@
                         android:id="@+id/coverPageSwitch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Use a page as cover"
+                        android:text="@string/export_use_page_as_cover"
                         android:checked="true"
                         android:paddingBottom="8dp"
                         tools:checked="true" android:paddingTop="8dp"/>
@@ -208,7 +208,7 @@
                         tools:visibility="visible">
 
                     <TextView
-                            android:text="Page number"
+                            android:text="@string/export_page_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
@@ -219,8 +219,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:hint="Enter page number"
-                            android:text="1"
+                            android:hint="@string/export_page_number_hint"
+                            android:text="@string/export_initial_page_number"
                             android:paddingBottom="12dp"/>
                 </LinearLayout>
 
@@ -229,7 +229,7 @@
                         android:id="@+id/CoverCustomSwitch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Use a custom file"
+                        android:text="@string/export_use_custom_file"
                         android:paddingBottom="8dp"
                         android:paddingTop="8dp"/>
 
@@ -247,7 +247,7 @@
                             android:id="@+id/selectCoverFileBtn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Select Cover Image"
+                            android:text="@string/export_select_cover_image"
                             android:paddingVertical="8dp"
                             android:paddingBottom="8dp"/>
 
@@ -268,7 +268,7 @@
                             android:id="@+id/coverFileName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="No file selected"
+                            android:text="@string/export_no_file_selected"
                             android:textSize="12sp"
                             android:gravity="center"
                             android:textColor="#999999"/>
@@ -292,7 +292,7 @@
                 android:id="@+id/Cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
+                android:text="@string/cancel"
                 android:backgroundTint="#616161"
                 android:paddingHorizontal="24dp" />
 
@@ -304,7 +304,7 @@
                 android:id="@+id/Proceed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Proceed"
+                android:text="@string/export_proceed"
                 android:paddingHorizontal="24dp" />
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_convert">Convert</string>
+    <string name="nav_manage">Manage</string>
+    <string name="nav_settings">Settings</string>
+    <string name="files">Files</string>
+    <string name="select_mihon_folder">Select Mihon Folder</string>
+    <string name="language">Language</string>
+    <string name="language_system">Follow system</string>
+    <string name="language_english">English</string>
+    <string name="language_simplified_chinese">Simplified Chinese</string>
+    <string name="format_epub">Electronic Publication (ePUB)</string>
+    <string name="format_pdf">Portable Document Format (PDF)</string>
+    <string name="cancel">Cancel</string>
+    <string name="proceed">Proceed</string>
+    <string name="processing">Processing…</string>
+    <string name="initializing">Initializing…</string>
+    <string name="delete">Delete</string>
+    <string name="delete_file">Delete file</string>
+    <string name="delete_file_message">Are you sure you want to delete “%1$s”?</string>
+    <string name="export_completed_successfully">Export completed successfully!</string>
+    <string name="export_failed">Export failed!</string>
+    <string name="warning">Warning</string>
+    <string name="continue_anyway">Continue</string>
+    <string name="switch_to_pdf">Switch to PDF</string>
+    <string name="mihon_folder_not_set">Mihon folder is not set</string>
+    <string name="set_mihon_folder_hint">Select the Mihon folder path in Settings</string>
+    <string name="format">Format</string>
+    <string name="image_processing">Image processing</string>
+    <string name="reencode_images">Re-encode as JPEG</string>
+    <string name="resize_images">Resize images</string>
+    <string name="use_grayscale">Use grayscale</string>
+    <string name="epub_settings">ePUB settings</string>
+    <string name="use_cover">Use cover</string>
+    <string name="page_number">Page number</string>
+    <string-array name="language_options">
+        <item>@string/language_system</item>
+        <item>@string/language_english</item>
+        <item>@string/language_simplified_chinese</item>
+    </string-array>
+</resources>

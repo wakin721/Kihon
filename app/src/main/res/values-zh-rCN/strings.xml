@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kihon</string>
+    <string name="title_home">转换</string>
+    <string name="title_dashboard">管理</string>
+    <string name="title_notifications">设置</string>
+    <string name="language">语言</string>
+    <string name="language_system">跟随系统</string>
+    <string name="language_english">English</string>
+    <string name="language_simplified_chinese">简体中文</string>
+    <string name="files">文件</string>
+    <string name="select_mihon_folder">选择 Mihon 文件夹</string>
+    <string name="mihon_folder_not_set">未设置 Mihon 文件夹</string>
+    <string name="set_mihon_folder_hint">请在设置中选择 Mihon 文件夹路径</string>
+    <string name="export_format_label">导出格式</string>
+    <string-array name="export_formats">
+        <item>电子出版物（ePUB）</item>
+        <item>便携式文档（PDF）</item>
+    </string-array>
+    <string name="export_image_processing">图像处理</string>
+    <string name="export_reencode_images">将图像重新编码为 JPEG</string>
+    <string name="export_image_quality">图像质量</string>
+    <string name="export_resize_images">调整图像尺寸</string>
+    <string name="export_image_size">图像尺寸</string>
+    <string name="export_use_grayscale">使用灰度模式</string>
+    <string name="export_epub_settings">ePUB 设置</string>
+    <string name="export_use_cover">使用封面</string>
+    <string name="export_use_page_as_cover">使用其中一页作为封面</string>
+    <string name="export_page_number">页码</string>
+    <string name="export_page_number_hint">请输入页码</string>
+    <string name="export_use_custom_file">使用自定义文件</string>
+    <string name="export_select_cover_image">选择封面图像</string>
+    <string name="export_no_file_selected">尚未选择文件</string>
+    <string name="export_proceed">继续</string>
+    <string name="export_page_number_range">页码必须介于 1 和 %1$d 之间</string>
+    <string name="export_invalid_page_number">请输入有效数字</string>
+    <string name="export_cover_open_failed">无法打开图像</string>
+    <string name="export_cover_decode_failed">无法解码图像</string>
+    <string name="export_cover_loaded_file">已加载：%1$s</string>
+    <string name="export_cover_loaded_success">封面图像加载成功</string>
+    <string name="export_cover_load_failed">封面图像加载失败：%1$s</string>
+    <string name="export_extract_directory_unavailable">解压目录尚未初始化！</string>
+    <string name="export_extract_folder_create_failed">无法创建解压文件夹！</string>
+    <string name="export_extract_zip_failed">ZIP 文件解压失败！</string>
+    <string name="export_epub_memory_warning_message">章节过多的 ePUB 文件可能因内存占用过高而导致应用崩溃。建议改用 PDF 格式。</string>
+    <string name="export_warning_title">警告</string>
+    <string name="export_continue">继续</string>
+    <string name="export_switch_to_pdf">切换为 PDF</string>
+    <string name="export_progress_title">正在导出 %1$s</string>
+    <string name="export_extracting_archives">正在解压归档文件…</string>
+    <string name="export_extracting_file">正在解压：%1$s</string>
+    <string name="export_archive_progress">归档文件 %1$d/%2$d</string>
+    <string name="export_extract_archive_error">归档文件解压出错：%1$s</string>
+    <string name="export_generating_file_name">正在生成文件名…</string>
+    <string name="export_preparing_metadata">正在准备元数据</string>
+    <string name="export_file_name_range">%1$s（%2$s 至 %3$s）</string>
+    <string name="export_processing_images">正在处理图像…</string>
+    <string name="export_optimizing_images">正在优化图像</string>
+    <string name="export_process_images_error">图像处理出错：%1$s</string>
+    <string name="export_generating_pdf">正在生成 PDF…</string>
+    <string name="export_adding_images_to_pdf">正在将图像添加到 PDF</string>
+    <string name="export_generating_epub">正在生成 EPUB…</string>
+    <string name="export_creating_epub_structure">正在创建 EPUB 结构</string>
+    <string name="export_cleaning_temporary_files">正在清理临时文件…</string>
+    <string name="export_deleting_extracted_folders">正在删除解压文件夹</string>
+    <string name="export_completed_success">导出成功！</string>
+    <string name="export_failed">导出失败！</string>
+
+    <string name="progress_activity_label">加载中…</string>
+    <string name="progress_processing">处理中…</string>
+    <string name="progress_initializing">正在初始化…</string>
+    <string name="progress_current_task_label">当前任务：</string>
+    <string name="progress_items_label">项目数：</string>
+    <string name="progress_complete">已完成</string>
+    <string name="progress_failed">失败</string>
+
+    <string name="manage_open_with">打开方式</string>
+    <string name="manage_share_file">分享 %1$s</string>
+    <string name="manage_delete_file_title">删除文件</string>
+    <string name="manage_delete_file_message">确定要删除“%1$s”吗？</string>
+    <string name="manage_delete">删除</string>
+    <string name="manage_empty_title">还没有已转换的文件</string>
+    <string name="manage_empty_message">转换后的文件会显示在这里</string>
+</resources>

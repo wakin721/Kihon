@@ -72,7 +72,7 @@ public class ManageFragment extends Fragment implements RenderedFilesAdapter.OnF
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(uri, mimeType);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            startActivity(Intent.createChooser(intent, "Open with"));
+            startActivity(Intent.createChooser(intent, getString(R.string.manage_open_with)));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -88,7 +88,8 @@ public class ManageFragment extends Fragment implements RenderedFilesAdapter.OnF
             intent.setType(mimeType);
             intent.putExtra(Intent.EXTRA_STREAM, uri);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            startActivity(Intent.createChooser(intent, "Share " + file.name));
+            startActivity(Intent.createChooser(
+                    intent, getString(R.string.manage_share_file, file.name)));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,9 +98,10 @@ public class ManageFragment extends Fragment implements RenderedFilesAdapter.OnF
     @Override
     public void onDelete(RenderedFile file, int position) {
         new AlertDialog.Builder(requireContext())
-                .setTitle("Delete file")
-                .setMessage("Are you sure you want to delete \"" + file.name + "." + file.extension + "\"?")
-                .setPositiveButton("Delete", (dialog, which) -> {
+                .setTitle(R.string.manage_delete_file_title)
+                .setMessage(getString(R.string.manage_delete_file_message,
+                        file.name + "." + file.extension))
+                .setPositiveButton(R.string.manage_delete, (dialog, which) -> {
                     boolean deleted = file.file.delete();
                     if (deleted) {
                         adapter.removeAt(position);
@@ -109,7 +111,7 @@ public class ManageFragment extends Fragment implements RenderedFilesAdapter.OnF
                         }
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
 

@@ -15,7 +15,7 @@
             android:id="@+id/progress_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Processing..."
+            android:text="@string/progress_processing"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="?android:attr/textColorPrimary"
@@ -25,7 +25,7 @@
             android:id="@+id/progress_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Initializing..."
+            android:text="@string/progress_initializing"
             android:textSize="14sp"
             android:textColor="@android:color/darker_gray"
             android:gravity="center"
@@ -50,7 +50,7 @@
                 android:id="@+id/progress_percentage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0%"
+                android:text="@string/progress_zero_percent"
                 android:textSize="12sp"
                 android:textColor="@android:color/darker_gray"
                 android:gravity="center"/>
@@ -70,7 +70,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Current Task:"
+                    android:text="@string/progress_current_task_label"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray"
                     android:textStyle="bold"/>
@@ -79,7 +79,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.5"
-                    android:text="Initializing..."
+                    android:text="@string/progress_initializing"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray"
                     android:gravity="end"/>
@@ -92,7 +92,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Items:"
+                    android:text="@string/progress_items_label"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray"
                     android:textStyle="bold"/>
@@ -101,7 +101,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.5"
-                    android:text="0/0"
+                    android:text="@string/progress_zero_items"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray"
                     android:gravity="end"/>
