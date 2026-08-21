@@ -3,54 +3,26 @@
     <string name="nav_convert">Convert</string>
     <string name="nav_manage">Manage</string>
     <string name="nav_settings">Settings</string>
-
     <string name="files">Files</string>
     <string name="select_mihon_folder">Select Mihon Folder</string>
     <string name="language">Language</string>
     <string name="language_system">Follow system</string>
     <string name="language_english">English</string>
     <string name="language_simplified_chinese">Simplified Chinese</string>
-
-    <string name="mihon_folder_not_set">Mihon folder not set</string>
-    <string name="set_mihon_folder_hint">Set your Mihon folder path in Settings to get started</string>
-    <string name="no_downloads_found">No downloads found</string>
-    <string name="no_downloads_hint">Nothing has been downloaded yet, or the Mihon folder path is incorrect. You can change it in Settings.</string>
-    <string name="no_converted_files">No converted files yet</string>
-    <string name="converted_files_hint">Files you convert will appear here</string>
-
-    <string name="format">Format</string>
     <string name="format_epub">Electronic Publication (ePUB)</string>
     <string name="format_pdf">Portable Document Format (PDF)</string>
-    <string name="image_processing">Image Processing</string>
-    <string name="reencode_images">Re-encode images to JPEG</string>
-    <string name="image_quality">Image quality</string>
-    <string name="resize_images">Resize images</string>
-    <string name="image_size">Image size</string>
-    <string name="use_grayscale">Use grayscale</string>
-    <string name="epub_settings">ePUB Settings</string>
-    <string name="use_cover">Use cover</string>
-    <string name="use_page_as_cover">Use a page as cover</string>
-    <string name="page_number">Page number</string>
-    <string name="enter_page_number">Enter page number</string>
-    <string name="use_custom_file">Use a custom file</string>
-    <string name="select_cover_image">Select Cover Image</string>
-    <string name="no_file_selected">No file selected</string>
     <string name="cancel">Cancel</string>
     <string name="proceed">Proceed</string>
-
     <string name="processing">Processing…</string>
     <string name="initializing">Initializing…</string>
-    <string name="current_task">Current Task:</string>
-    <string name="items">Items:</string>
-    <string name="loading">Loading…</string>
-
-    <string name="open_with">Open with</string>
-    <string name="share_file">Share %1$s</string>
+    <string name="delete">Delete</string>
     <string name="delete_file">Delete file</string>
     <string name="delete_file_message">Are you sure you want to delete “%1$s”?</string>
-    <string name="delete">Delete</string>
-    <string name="chapter_icon">Chapter icon</string>
-
+    <string name="export_completed_successfully">Export completed successfully!</string>
+    <string name="export_failed">Export failed!</string>
+    <string name="warning">Warning</string>
+    <string name="continue_anyway">Continue</string>
+    <string name="switch_to_pdf">Switch to PDF</string>
     <string-array name="language_options">
         <item>@string/language_system</item>
         <item>@string/language_english</item>
