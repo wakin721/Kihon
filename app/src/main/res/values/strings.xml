@@ -12,6 +12,87 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!-- Export options -->
+    <string name="export_format_label">Format</string>
+    <string-array name="export_formats">
+        <item>Electronic Publication (ePUB)</item>
+        <item>Portable Document Format (PDF)</item>
+    </string-array>
+    <string name="export_image_processing">Image processing</string>
+    <string name="export_reencode_images">Re-encode images to JPEG</string>
+    <string name="export_image_quality">Image quality</string>
+    <string name="export_initial_quality" translatable="false">80%</string>
+    <string name="export_resize_images">Resize images</string>
+    <string name="export_image_size">Image size</string>
+    <string name="export_initial_size" translatable="false">100%</string>
+    <string name="export_use_grayscale">Use grayscale</string>
+    <string name="export_epub_settings">ePUB settings</string>
+    <string name="export_use_cover">Use cover</string>
+    <string name="export_use_page_as_cover">Use a page as cover</string>
+    <string name="export_page_number">Page number</string>
+    <string name="export_page_number_hint">Enter page number</string>
+    <string name="export_initial_page_number" translatable="false">1</string>
+    <string name="export_use_custom_file">Use a custom file</string>
+    <string name="export_select_cover_image">Select cover image</string>
+    <string name="export_no_file_selected">No file selected</string>
+    <string name="cancel">Cancel</string>
+    <string name="export_proceed">Proceed</string>
+    <string name="export_page_number_range">Page number must be between 1 and %1$d</string>
+    <string name="export_invalid_page_number">Please enter a valid number</string>
+    <string name="export_cover_open_failed">Failed to open image</string>
+    <string name="export_cover_decode_failed">Failed to decode image</string>
+    <string name="export_cover_loaded_file">Loaded: %1$s</string>
+    <string name="export_cover_loaded_success">Cover image loaded successfully</string>
+    <string name="export_cover_load_failed">Failed to load cover image: %1$s</string>
+    <string name="export_extract_directory_unavailable">Extracted files directory is not initialized!</string>
+    <string name="export_extract_folder_create_failed">Failed to create extraction folder!</string>
+    <string name="export_extract_zip_failed">Failed to extract ZIP file!</string>
+    <string name="export_epub_memory_warning_message">Using ePUB files with a large number of chapters may cause crashes due to excessive memory usage. Consider using PDF format instead.</string>
+    <string name="export_warning_title">Warning</string>
+    <string name="export_continue">Continue</string>
+    <string name="export_switch_to_pdf">Switch to PDF</string>
+    <string name="export_progress_title">Exporting %1$s</string>
+    <string name="export_extracting_archives">Extracting archives…</string>
+    <string name="export_extracting_file">Extracting: %1$s</string>
+    <string name="export_archive_progress">Archive %1$d of %2$d</string>
+    <string name="export_extract_archive_error">Error extracting archive: %1$s</string>
+    <string name="export_generating_file_name">Generating file name…</string>
+    <string name="export_preparing_metadata">Preparing metadata</string>
+    <string name="export_file_name_range">%1$s from %2$s to %3$s</string>
+    <string name="export_processing_images">Processing images…</string>
+    <string name="export_optimizing_images">Optimizing images</string>
+    <string name="export_process_images_error">Error processing images: %1$s</string>
+    <string name="export_generating_pdf">Generating PDF…</string>
+    <string name="export_adding_images_to_pdf">Adding images to PDF</string>
+    <string name="export_generating_epub">Generating EPUB…</string>
+    <string name="export_creating_epub_structure">Creating EPUB structure</string>
+    <string name="export_cleaning_temporary_files">Cleaning up temporary files…</string>
+    <string name="export_deleting_extracted_folders">Deleting extracted folders</string>
+    <string name="export_completed_success">Export completed successfully!</string>
+    <string name="export_failed">Export failed!</string>
+
+    <!-- Progress -->
+    <string name="progress_activity_label">Loading…</string>
+    <string name="progress_processing">Processing…</string>
+    <string name="progress_initializing">Initializing…</string>
+    <string name="progress_current_task_label">Current task:</string>
+    <string name="progress_items_label">Items:</string>
+    <string name="progress_complete">Complete</string>
+    <string name="progress_failed">Failed</string>
+    <string name="progress_percentage_format" translatable="false">%1$d%%</string>
+    <string name="progress_items_format" translatable="false">%1$d/%2$d</string>
+    <string name="progress_zero_percent" translatable="false">0%</string>
+    <string name="progress_zero_items" translatable="false">0/0</string>
+
+    <!-- Manage converted files -->
+    <string name="manage_open_with">Open with</string>
+    <string name="manage_share_file">Share %1$s</string>
+    <string name="manage_delete_file_title">Delete file</string>
+    <string name="manage_delete_file_message">Are you sure you want to delete &quot;%1$s&quot;?</string>
+    <string name="manage_delete">Delete</string>
+    <string name="manage_empty_title">No converted files yet</string>
+    <string name="manage_empty_message">Files you convert will appear here</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris volutpat, dolor id
         interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus dui nec risus. Maecenas non sodales
