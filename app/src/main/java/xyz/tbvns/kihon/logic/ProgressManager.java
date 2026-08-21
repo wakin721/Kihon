@@ -7,6 +7,7 @@ import android.os.Looper;
 import androidx.annotation.MainThread;
 import lombok.Getter;
 import xyz.tbvns.kihon.MainActivity;
+import xyz.tbvns.kihon.R;
 import xyz.tbvns.kihon.activity.ProgressActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
@@ -20,9 +21,11 @@ public class ProgressManager {
     @Getter
     private int currentProgress = 0;
     @Getter
-    private String currentMessage = "Initializing...";
+    private String currentTitle;
     @Getter
-    private String currentTask = "Initializing...";
+    private String currentMessage;
+    @Getter
+    private String currentTask;
     @Getter
     private int currentItems = 0;
     @Getter
@@ -34,7 +37,8 @@ public class ProgressManager {
 
     private ProgressManager(Context context) {
         mainHandler = new Handler(Looper.getMainLooper());
-        this.context = context;
+        this.context = context.getApplicationContext();
+        reset();
     }
 
     public static synchronized ProgressManager getInstance(Context context) {
@@ -46,9 +50,9 @@ public class ProgressManager {
 
     public void startProgress(Context context, String title, String subtitle) {
         reset();
+        currentTitle = title;
+        currentMessage = subtitle;
         Intent intent = new Intent(context, ProgressActivity.class);
-        intent.putExtra("title", title);
-        intent.putExtra("message", subtitle);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
     }
@@ -59,6 +63,7 @@ public class ProgressManager {
         if (activity != null) {
             activity.reset();
             activity.setProgressBar(currentProgress);
+            activity.setTitle(currentTitle);
             activity.setMessage(currentMessage);
             activity.setCurrentTask(currentTask);
             activity.setItemsCount(currentItems, totalItems);
@@ -138,8 +143,9 @@ public class ProgressManager {
     }
     public synchronized void reset() {
         currentProgress = 0;
-        currentMessage = "Initializing...";
-        currentTask = "Initializing...";
+        currentTitle = context.getString(R.string.progress_processing);
+        currentMessage = context.getString(R.string.progress_initializing);
+        currentTask = context.getString(R.string.progress_initializing);
         currentItems = 0;
         totalItems = 0;
         isFinished = false;
