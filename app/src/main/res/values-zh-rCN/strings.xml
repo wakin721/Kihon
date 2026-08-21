@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Kihon</string>
+    <string name="title_home">转换</string>
+    <string name="title_dashboard">管理</string>
+    <string name="title_notifications">设置</string>
+    <string name="language">语言</string>
+    <string name="language_system">跟随系统</string>
+    <string name="language_english">English</string>
+    <string name="language_simplified_chinese">简体中文</string>
+    <string name="files">文件</string>
+    <string name="select_mihon_folder">选择 Mihon 文件夹</string>
+    <string name="mihon_folder_not_set">未设置 Mihon 文件夹</string>
+    <string name="set_mihon_folder_hint">请在设置中选择 Mihon 文件夹路径</string>
+</resources>
